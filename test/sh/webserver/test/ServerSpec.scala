@@ -2,6 +2,7 @@ package sh.webserver.test
 
 import org.scalatest._
 
-class ServerSpec {
-  "A Server" should "conne"
+class ServerSpec extends FlatSpec with Matchers {
+  "A Server" should "connect to a port" in {
+  }
 }

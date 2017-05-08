@@ -1,4 +1,4 @@
-package main.scala.sh.webserver
+package sh.webserver
 
 import java.net.Socket
 
