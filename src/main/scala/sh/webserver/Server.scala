@@ -1,4 +1,4 @@
-package sh.webserver
+package main.scala.sh.webserver
 
 import java.net.ServerSocket
 import java.util.concurrent.Executors

@@ -1,4 +1,4 @@
-package sh.webserver
+package main.scala.sh.webserver
 
 object Runner {
   def main(args: Array[String]): Unit = {
