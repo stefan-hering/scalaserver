@@ -1,4 +1,4 @@
 # scalaserver
-Dear strong bad, can you show me how to build a webserver?
+Hey strong bad, can code a webserver? I want to see your skills of a programmer.
 
-A webserver? That's easy! Feel free to follow along with my simple step-by-step instructions. I make coding FUN!!
+A webserver? That's easy! Feel free to follow along with my simple step-by-step instructions. I make coding FUN!
