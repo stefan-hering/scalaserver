@@ -3,6 +3,8 @@ package sh.webserver
 import java.net.ServerSocket
 import java.util.concurrent.{ExecutorService, Executors}
 
+import scala.annotation.tailrec
+
 class Server(port: Int) {
   def start() {
     val server = new ServerSocket(port);
@@ -10,7 +12,8 @@ class Server(port: Int) {
     listen(server, pool);
   }
 
-  def listen(server : ServerSocket,pool : ExecutorService) {
+  @tailrec
+  private def listen(server : ServerSocket,pool : ExecutorService) {
     val socket = server.accept();
     pool.execute(new RequestHandler(socket));
     listen(server, pool);
