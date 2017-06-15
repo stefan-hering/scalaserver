@@ -15,16 +15,18 @@ class RequestHandler(request: Request) extends Runnable {
     //TODO do something
     (SUCCESS, request)
   }
-  def validatePath = Switch.bind((request: Request) => {
+  def validatePath = (request: Request) => {
     //TODO do something
     (FAILURE, request)
-  })
-  def validateQuery = Switch.bind((request: Request) => {
+  }
+  def validateQuery = (request: Request) => {
     //TODO do something
     (SUCCESS, request)
-  })
+  }
 
-  def validationRailyway = validateHTTPMethod andThen validatePath andThen validateQuery;
+  def validateEverything = validateHTTPMethod andThen Switch.bind(validatePath) andThen Switch.bind(validateQuery);
+  def validatePathAndQuery = validatePath andThen Switch.bind(validateQuery);
+  def validateMethodAndQuery = validateHTTPMethod andThen Switch.bind(validateQuery);
 
   def readHeaders(inputStream : InputStream): (String, Iterator[String]) = {
     val reader : BufferedReader = new BufferedReader(Source.createBufferedSource(inputStream).reader)
@@ -45,7 +47,7 @@ class RequestHandler(request: Request) extends Runnable {
   def run() = {
     val (firstLine, requestHeaders) = readHeaders(request.inputStream)
 
-    validationRailyway(request);
+    validateEverything(request);
 
     request.outputStream.write("HTTP/1.1 200 OK\nCache-Control: no-cache\n\nJunge".getBytes)
     request.outputStream.write(System.currentTimeMillis.toString.getBytes)
