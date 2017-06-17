@@ -1,15 +1,6 @@
 package sh.webserver.request
 
-import java.io.{InputStream, OutputStream}
-import java.net.Socket
 
-class Request(socket: Socket) {
+class Request(val method : String, val path: String, val parameters: Map[String,String], val headers: Map[String,String]) {
 
-  def inputStream():InputStream = {
-    socket.getInputStream
-  }
-
-  def outputStream():OutputStream = {
-    socket.getOutputStream
-  }
 }

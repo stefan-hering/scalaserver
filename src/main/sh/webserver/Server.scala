@@ -17,7 +17,7 @@ class Server(port: Int) {
   @tailrec
   private def listen(server : ServerSocket,pool : ExecutorService) {
     val socket = server.accept()
-    pool.execute(new RequestHandler(new Request(socket)))
+    pool.execute(new RequestHandler(socket))
     listen(server, pool)
   }
 }
