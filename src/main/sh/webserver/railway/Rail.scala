@@ -7,7 +7,8 @@ import sh.webserver.railway.Result._
   * A take on the railway oriented programming idea as seen here:
   * https://fsharpforfunandprofit.com/posts/recipe-part2/
   *
-  * Used to chain functions that operate on the same Type together. Once one of the functions returns a Result.FAILURE, the remaining functions in the chain will not be called.
+  * Used to chain functions that operate on the same Type together. Once one of the functions returns a Result.FAILURE,
+  * the remaining functions in the chain will not be called.
   */
 object Rail {
   /**
